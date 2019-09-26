@@ -5,15 +5,27 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Edit Hurricane | Hurricane Tracker - Web Version</title>
+<style>
+	table {
+		padding: 5px;
+	}
+	td {
+		padding: 5px;
+	}
+</style>
 </head>
 <body>
+<h1>Edit Hurricane</h1>
+<br>
 <form action = "editHurricaneServlet" method="post">
-Name: <input type="text" name="name" value="${itemToEdit.name}">
-Year: <input type="text" name="year" value="${itemToEdit.year}">
-Category: <input type="text" name="cat" value="${itemToEdit.category}">
-<input type="hidden" name="id" value="${itemToEdit.id}">
-<input type="submit" value="Save Changes">
+<table>
+<tr><td>Name: </td><td><input type="text" name="name" value="${itemToEdit.name}"></td></tr>
+<tr><td>Year: </td><td><input type="text" name="year" value="${itemToEdit.year}"></td></tr>
+<tr><td>Category: </td><td><input type="text" name="cat" value="${itemToEdit.category}"></td></tr>
+<tr><td></td><td><input type="hidden" name="id" value="${itemToEdit.id}"></td></tr>
+<tr><td></td><td><input type="submit" value="Save Changes" style="float: right;"></td></tr>
+</table>
 </form>
 </body>
 </html>

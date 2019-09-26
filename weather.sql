@@ -28,7 +28,7 @@ CREATE TABLE `hurricanes` (
   `STORMYEAR` int(4) NOT NULL,
   `CATEGORY` int(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `hurricanes` (
 
 LOCK TABLES `hurricanes` WRITE;
 /*!40000 ALTER TABLE `hurricanes` DISABLE KEYS */;
-INSERT INTO `hurricanes` VALUES (1,'Dorian',2019,5),(2,'Andrew',1998,5),(3,'Bobby',1968,3),(5,'Flora',1963,4),(6,'John',1986,3),(7,'Mitch',1998,5);
+INSERT INTO `hurricanes` VALUES (1,'Dorian',2019,5),(2,'Andrew',1998,5),(3,'Bobby',1968,3),(5,'Flora',1963,4),(6,'John',1986,3),(10,'Alexa',2009,4),(11,'Danny',1976,4),(14,'Jamie',1982,3),(17,'Kyle',2003,2);
 /*!40000 ALTER TABLE `hurricanes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-12 19:51:39
+-- Dump completed on 2019-09-25 22:14:52
