@@ -11,7 +11,7 @@ import model.Hurricane;
 
 public class HurricaneHelper {
 	
-	static EntityManagerFactory emfactory =	Persistence.createEntityManagerFactory("ConsoleHurricaneTracker");
+	static EntityManagerFactory emfactory =	Persistence.createEntityManagerFactory("WebHurricaneTracker");
 
 	public void insertHurricane(Hurricane h) {
 		EntityManager em = emfactory.createEntityManager();
@@ -25,15 +25,10 @@ public class HurricaneHelper {
 		List<Hurricane> allHurricanes = em.createQuery("SELECT h FROM Hurricane h").getResultList();
 		return allHurricanes;
 	}
-	public void deleteItem(Hurricane toDelete) {
+	public void deleteHurricane(Hurricane toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Hurricane> typedQuery = em.createQuery("SELECT h FROM Hurricane h WHERE h.name = :selectedName AND h.year = :selectedYear AND h.category = :selectedCategory", Hurricane.class);
-		typedQuery.setParameter("selectedName", toDelete.getName());
-		typedQuery.setParameter("selectedYear", toDelete.getYear());
-		typedQuery.setParameter("selectedCategory", toDelete.getCategory());
-		typedQuery.setMaxResults(1);
-		Hurricane result = typedQuery.getSingleResult();
+		Hurricane result = em.find(Hurricane.class, toDelete.getId());
 		em.remove(result);
 		em.getTransaction().commit();
 		em.close();

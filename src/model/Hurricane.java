@@ -13,8 +13,8 @@ public class Hurricane {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID")
-	private int id;
+	@Column(name="STORM_ID")
+	private int stormId;
 	@Column(name="STORMNAME")
 	private String name;
 	@Column(name="STORMYEAR")
@@ -32,10 +32,10 @@ public class Hurricane {
 	}
 	
 	public int getId() {
-		return this.id;
+		return this.stormId;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.stormId = id;
 	}
 	public String getName() {
 		return this.name;
@@ -56,7 +56,7 @@ public class Hurricane {
 	}
 	
 	public String returnStormDetails() {
-		return this.id + ": Hurricane " + this.name + " occurred in " + this.year + 
+		return this.stormId + ": Hurricane " + this.name + " occurred in " + this.year + 
 				" and was a Category " + this.category + " storm.";
 	}
 	public String toString() {

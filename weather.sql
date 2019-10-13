@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `hurricanes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hurricanes` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `STORM_ID` int(11) NOT NULL AUTO_INCREMENT,
   `STORMNAME` varchar(20) NOT NULL,
-  `STORMYEAR` int(4) NOT NULL,
   `CATEGORY` int(1) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `STORMYEAR` int(4) NOT NULL,
+  PRIMARY KEY (`STORM_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `hurricanes` (
 
 LOCK TABLES `hurricanes` WRITE;
 /*!40000 ALTER TABLE `hurricanes` DISABLE KEYS */;
-INSERT INTO `hurricanes` VALUES (1,'Dorian',2019,5),(2,'Andrew',1998,5),(3,'Bobby',1968,3),(5,'Flora',1963,4),(6,'John',1986,3),(10,'Alexa',2009,4),(11,'Danny',1976,4),(14,'Jamie',1982,3),(17,'Kyle',2003,2);
+INSERT INTO `hurricanes` VALUES (1,'Dorian',5,2019),(2,'Andrew',5,1992),(3,'Bobby',3,2005),(5,'Flora',4,2003),(10,'Alexa',2,1984),(14,'Jamie',3,2017),(17,'Kyle',2,1999),(18,'Mitchell',4,2000),(19,'Henry',4,2015),(23,'Jim',3,2019);
 /*!40000 ALTER TABLE `hurricanes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-25 22:14:52
+-- Dump completed on 2019-10-13 14:17:21

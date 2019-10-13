@@ -6,31 +6,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>All Hurricanes | Hurricane Tracker - Web Version</title>
-<style>
-	table {
-		padding: 5px;
-		border-collapse: collapse;
-	}
-	td, th {
-		border: 1px solid #ddd;
-  		padding: 8px;
-  		text-align: center;
-	}
-	tr:nth-child(even){
-		background-color: #f2f2f2;
-	}
-	th {
-		padding-top: 12px;
- 	 	padding-bottom: 12px;
- 	 	font-style: bold;
- 	}
-	
-</style>
+<link rel="stylesheet" type="text/css" href="site.css">
+<script src="validation.js"></script>
 </head>
 <body>
 <h1>All Hurricanes</h1>
 <h4>Below are all the hurricanes in our database:</h4>
-<form method = "post" action = "navigationServlet">
+<form method="post" action="navigationServlet" onsubmit="return validateNav(this);">
 <table>
 <tr>
  <th></th>
@@ -40,7 +22,8 @@
 </tr>
 <c:forEach items="${requestScope.allHurricanes}" var="currentHurricane">
 <tr>
- <td><input type="radio" name="id" value="${currentHurricane.id}"></td>
+ <td><input type="radio" name="id" value="${currentHurricane.id}" 
+ 	onclick="document.getElementById('selectedId').value = ${currentHurricane.id};"></td>
  <td>${currentHurricane.name}</td>
  <td>${currentHurricane.year}</td>
  <td>${currentHurricane.category}</td>
@@ -49,11 +32,12 @@
 <tr></tr>
 <tr>
  <td></td>
- <td><input type="submit" value="Edit" name="doThisToItem"></td>
- <td><input type="submit" value="Delete" name="doThisToItem"></td>
- <td><input type="submit" value="Add" name="doThisToItem"></td>
+ <td><input type="submit" value="Edit" name="doThisToItem" onclick="return validateNav();"></td>
+ <td><input type="submit" value="Delete" name="doThisToItem" onclick="return validateNav();"></td>
+ <td><input type="button" value="Add" onclick="location.href='index.jsp'"></td>
 </tr>
 </table>
 </form>
+<p><input hidden="hidden" type="text" id="selectedId" value="${selectedId}"></input><span id="formError"></span></p>
 </body>
 </html>

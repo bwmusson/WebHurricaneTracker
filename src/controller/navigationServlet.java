@@ -45,10 +45,11 @@ public class navigationServlet extends HttpServlet {
 		else if (act.equals("Delete")) {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
-				Hurricane itemToDelete = hHelper.searchForHurricaneById(tempId);
-				hHelper.deleteItem(itemToDelete);
+				Hurricane stormToDelete = hHelper.searchForHurricaneById(tempId);
+				hHelper.deleteHurricane(stormToDelete);
 			} 
 			catch (NumberFormatException e) {
+				System.out.println("Id: " + request.getParameter("id"));
 				System.out.println("No Hurricane Selected");
 			} 
 			finally {
@@ -63,12 +64,12 @@ public class navigationServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/editHurricane.jsp").forward(request, response);
 			}
 			catch (NumberFormatException e) {
+				System.out.println("Id: " + request.getParameter("id"));
 				System.out.println("No Hurricane Selected");
-				getServletContext().getRequestDispatcher("/viewAllHurricanesServlet").forward(request, response);
 			}
-		}
-		else if (act.equals("Add")) {
-			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			finally {
+					getServletContext().getRequestDispatcher("/viewAllHurricanesServlet").forward(request, response);
+			}
 		}
 	}
 
